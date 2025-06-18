@@ -21,6 +21,7 @@ fn main() -> io::Result<()> {
         .arg("pgrep -f 'kate -b' | head -1")
         .output()?;
 
+    // Sweet PID for you
     if output.status.success() {
         let pid = String::from_utf8_lossy(&output.stdout);
         println!("Найден PID: {}", pid.trim());
